@@ -81,15 +81,13 @@ Bun.serve({
     async fetch(req) {
         const url = new URL(req.url);
         const path = url.pathname.split("/");
-        const id = path[2];
-        const resource = path[3];
-        switch (resource) {
+        switch (path[3]) {
             case "transacoes":
-                return createTransaction(parseInt(id), await req.json() as CreateTransactionDTO);
+                return createTransaction(parseInt(path[2]), await req.json() as CreateTransactionDTO);
             case "extrato":
-                return jsonRes(200, {message: id});
+                return jsonRes(200, {message: parseInt(path[2])});
             default:
-                return jsonRes(200, {message: "Not Found"});
+                return jsonRes(404, {message: "Not Found"});
         }
     },
     error(e) {
