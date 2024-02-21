@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "@total-typescript/ts-reset": "^0.5.1",
-    "spectre-orm": "^1.0.22",
+    "@types/pg": "^8.11.0",
+    "pg": "^8.11.3",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
